@@ -4,7 +4,13 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in menu.controllers.js
-angular.module('mHomeLab', ['ionic', 'mHomeLab.controllers'])
+angular.module('mHomeLab', ['ionic', 'mHomeLab.controllers', 'mHomeLab.services'])
+
+.constant('config', {
+    appName: 'BabysFirstYear',
+    dataMode: 0,
+    dataUrl: 'http://maksoodmohiuddin.com/test'
+})
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -29,7 +35,7 @@ angular.module('mHomeLab', ['ionic', 'mHomeLab.controllers'])
     url: '/app',
     abstract: true,
     templateUrl: 'app/menu/menu.template.html',
-    controller: 'AppCtrl'
+    controller: 'MenuCtrl'
   })
 
   .state('app.welcome', {
@@ -50,8 +56,8 @@ angular.module('mHomeLab', ['ionic', 'mHomeLab.controllers'])
       }
     })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
+  .state('app.photocard', {
+    url: '/photocards/:photocardId',
     views: {
       'menuContent': {
         templateUrl: 'app/photos/photocard.template.html',
@@ -60,5 +66,5 @@ angular.module('mHomeLab', ['ionic', 'mHomeLab.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/photocards');
+  $urlRouterProvider.otherwise('/app/welcome');
 });
