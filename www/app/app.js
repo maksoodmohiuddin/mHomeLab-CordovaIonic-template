@@ -46,6 +46,14 @@ angular.module('mHomeLab', ['ionic', 'mHomeLab.controllers', 'mHomeLab.services'
         }
       }
     })
+    .state('app.add', {
+        url: '/add',
+        views: {
+            'menuContent': {
+                templateUrl: 'app/menu/add.template.html'
+            }
+        }
+    })
     .state('app.photocards', {
       url: '/photocards',
       views: {
